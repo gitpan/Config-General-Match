@@ -17,11 +17,11 @@ Config::General::Match - Add C<< <Location> >> and C<< <LocationMatch> >> style 
 
 =head1 VERSION
 
-Version 0.03
+Version 0.04
 
 =cut
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 =head1 SYNOPSIS
 
@@ -55,14 +55,15 @@ our $VERSION = '0.03';
     );
 
     my %config = $conf->getall_matching('/users/~mary/index.html');
-    print Data::Dumper(\%config);
+    use Data::Dumper;
+    print Dumper(\%config);
     $VAR1 = {
         'title'         => 'User Area',
         'image_file'    => undef,
     };
 
     my %config = $conf->getall_matching('/users/~biff/images/flaming_logo.gif');
-    print Data::Dumper(\%config);
+    print Dumper(\%config);
     $VAR1 = {
         'title'         => 'User Area',
         'image_file'    => 1,
@@ -132,7 +133,8 @@ modules:
     );
 
     my %config = $conf->getall_matching('Net::FTP');
-    print Data::Dumper(\%config);
+    use Data::Dumper;
+    print Dumper(\%config);
     $VAR1 = {
         'is_core_module' => 1,
         'author'         => 'Nathan Torkington',
@@ -159,7 +161,8 @@ instance:
 
     # Admin Area URL
     my %config = $conf->getall_matching('/admin/index.html');
-    print Data::Dumper(\%config);
+    use Data::Dumper;
+    print Dumper(\%config);
     $VAR1 = {
         'private_area' => 1,
         'client_area' => 0,
@@ -167,7 +170,7 @@ instance:
 
     # Client Area URL
     my %config = $conf->getall_matching('/clients/index.html');
-    print Data::Dumper(\%config);
+    print Dumper(\%config);
     $VAR1 = {
         'private_area' => 0,
         'client_area'  => 1,
@@ -175,7 +178,7 @@ instance:
 
     # Neither Client nor Admin
     my %config = $conf->getall_matching('/public/index.html');
-    print Data::Dumper(\%config);
+    print Dumper(\%config);
     $VAR1 = {
         'private_area' => 0,
         'client_area'  => 0,
@@ -212,7 +215,8 @@ Sections and subsections are merged along with single values.  For instance:
 
     # Admin Area URL
     my %config = $conf->getall_matching('/admin/index.html');
-    print Data::Dumper(\%config);
+    use Data::Dumper;
+    print Dumper(\%config);
     $VAR1 = {
         'page_settings' => {
                             'advanced_ui' => '1',
@@ -224,7 +228,7 @@ Sections and subsections are merged along with single values.  For instance:
     };
     # Client Area URL
     my %config = $conf->getall_matching('/clients/index.html');
-    print Data::Dumper(\%config);
+    print Dumper(\%config);
     $VAR1 = {
         'page_settings' => {
                             'advanced_ui' => '0',
@@ -237,7 +241,7 @@ Sections and subsections are merged along with single values.  For instance:
 
     # Neither Client nor Admin
     my %config = $conf->getall_matching('/public/index.html');
-    print Data::Dumper(\%config);
+    print Dumper(\%config);
     $VAR1 = {
 
         'page_settings' => {
@@ -594,7 +598,8 @@ longest match, i.e. 1, 3, 2).
 Then it tests 'NET::FTP::Common' against section 4 (which also matches).
 The resulting configuration is:
 
-    print Data::Dumper(\%config);
+    use Data::Dumper;
+    print Dumper(\%config);
     $VAR1 = {
         'Perl_Module'      => 1,
         'Core_Module'      => 0,
@@ -614,7 +619,8 @@ and 3, and matches only against section 1.  Then it matches
 'NET::FTPServer' against section 4 (which does not match).  The
 result is:
 
-    print Data::Dumper(\%config);
+    use Data::Dumper;
+    print Dumper(\%config);
     $VAR1 = {
         'Perl_Module'      => 1,
         'Core_Module'      => 0,
@@ -780,7 +786,8 @@ structures.
         path  => '/aesop/wolf-in-sheeps-clothing',
     );
 
-    print Data::Dumper($config);
+    use Data::Dumper;
+    print Dumper($config);
     $VAR1 = {
         'antagonist' => 'Big Bad Wolf',
         'moral'      => 'appearances are deceptive'
@@ -1059,7 +1066,7 @@ C<Config::General> module.
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2004 Michael Graham, All Rights Reserved.
+Copyright 2004-2005 Michael Graham, All Rights Reserved.
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.

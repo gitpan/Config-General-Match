@@ -35,14 +35,15 @@ SYNOPSIS
         );
 
         my %config = $conf->getall_matching('/users/~mary/index.html');
-        print Data::Dumper(\%config);
+        use Data::Dumper;
+        print Dumper(\%config);
         $VAR1 = {
             'title'         => 'User Area',
             'image_file'    => undef,
         };
 
         my %config = $conf->getall_matching('/users/~biff/images/flaming_logo.gif');
-        print Data::Dumper(\%config);
+        print Dumper(\%config);
         $VAR1 = {
             'title'         => 'User Area',
             'image_file'    => 1,
@@ -108,7 +109,8 @@ DESCRIPTION
         );
 
         my %config = $conf->getall_matching('Net::FTP');
-        print Data::Dumper(\%config);
+        use Data::Dumper;
+        print Dumper(\%config);
         $VAR1 = {
             'is_core_module' => 1,
             'author'         => 'Nathan Torkington',
@@ -132,7 +134,8 @@ DESCRIPTION
 
         # Admin Area URL
         my %config = $conf->getall_matching('/admin/index.html');
-        print Data::Dumper(\%config);
+        use Data::Dumper;
+        print Dumper(\%config);
         $VAR1 = {
             'private_area' => 1,
             'client_area' => 0,
@@ -140,7 +143,7 @@ DESCRIPTION
 
         # Client Area URL
         my %config = $conf->getall_matching('/clients/index.html');
-        print Data::Dumper(\%config);
+        print Dumper(\%config);
         $VAR1 = {
             'private_area' => 0,
             'client_area'  => 1,
@@ -148,7 +151,7 @@ DESCRIPTION
 
         # Neither Client nor Admin
         my %config = $conf->getall_matching('/public/index.html');
-        print Data::Dumper(\%config);
+        print Dumper(\%config);
         $VAR1 = {
             'private_area' => 0,
             'client_area'  => 0,
@@ -185,7 +188,8 @@ DESCRIPTION
 
         # Admin Area URL
         my %config = $conf->getall_matching('/admin/index.html');
-        print Data::Dumper(\%config);
+        use Data::Dumper;
+        print Dumper(\%config);
         $VAR1 = {
             'page_settings' => {
                                 'advanced_ui' => '1',
@@ -197,7 +201,7 @@ DESCRIPTION
         };
         # Client Area URL
         my %config = $conf->getall_matching('/clients/index.html');
-        print Data::Dumper(\%config);
+        print Dumper(\%config);
         $VAR1 = {
             'page_settings' => {
                                 'advanced_ui' => '0',
@@ -210,7 +214,7 @@ DESCRIPTION
 
         # Neither Client nor Admin
         my %config = $conf->getall_matching('/public/index.html');
-        print Data::Dumper(\%config);
+        print Dumper(\%config);
         $VAR1 = {
 
             'page_settings' => {
@@ -536,7 +540,8 @@ CONSTRUCTOR
         Then it tests 'NET::FTP::Common' against section 4 (which also
         matches). The resulting configuration is:
 
-            print Data::Dumper(\%config);
+            use Data::Dumper;
+            print Dumper(\%config);
             $VAR1 = {
                 'Perl_Module'      => 1,
                 'Core_Module'      => 0,
@@ -556,7 +561,8 @@ CONSTRUCTOR
         'NET::FTPServer' against section 4 (which does not match). The
         result is:
 
-            print Data::Dumper(\%config);
+            use Data::Dumper;
+            print Dumper(\%config);
             $VAR1 = {
                 'Perl_Module'      => 1,
                 'Core_Module'      => 0,
@@ -683,7 +689,8 @@ METHODS
             path  => '/aesop/wolf-in-sheeps-clothing',
         );
 
-        print Data::Dumper($config);
+        use Data::Dumper;
+        print Dumper($config);
         $VAR1 = {
             'antagonist' => 'Big Bad Wolf',
             'moral'      => 'appearances are deceptive'
@@ -737,7 +744,7 @@ ACKNOWLEDGEMENTS
     "Config::General" module.
 
 COPYRIGHT & LICENSE
-    Copyright 2004 Michael Graham, All Rights Reserved.
+    Copyright 2004-2005 Michael Graham, All Rights Reserved.
 
     This program is free software; you can redistribute it and/or modify it
     under the same terms as Perl itself.

@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name: Config-General-Match
-version: 0.03
+version: 0.04
 author:
   - Michael Graham <mag-perl@occamstoothbrush.com>
 abstract: ! >-
@@ -14,5 +14,5 @@ requires:
 provides:
   Config::General::Match:
     file: lib/Config/General/Match.pm
-    version: 0.03
+    version: 0.04
 generated_by: Module::Build version 0.2607
