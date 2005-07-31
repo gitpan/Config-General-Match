@@ -3,7 +3,10 @@ NAME
     matching to Config::General
 
 VERSION
-    Version 0.03
+    Version 0.05
+
+NOTE
+    This module is obsolete and has now been superceded by Config::Context.
 
 SYNOPSIS
         use Config::General::Match;

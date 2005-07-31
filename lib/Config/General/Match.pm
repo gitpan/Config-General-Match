@@ -17,11 +17,16 @@ Config::General::Match - Add C<< <Location> >> and C<< <LocationMatch> >> style 
 
 =head1 VERSION
 
-Version 0.04
+Version 0.05
 
 =cut
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
+
+=head1 NOTE
+
+This module is obsolete and has now been superceded by
+L<Config::Context>.
 
 =head1 SYNOPSIS
 
